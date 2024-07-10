@@ -7,3 +7,40 @@ Program Development
 • Compile==> compiler translates the source code into Java bytecode
 • Debug==> fix errors
 • Execute==> interpreter (JVM) translates and executes the program
+
+• Delimiter->Average of grades.
+import java.text.NumberFormat;
+import java.util.Scanner;
+public class AverageNumByDelimiter {
+    public static void main(String[] args) {
+        NumberFormat decimal = NumberFormat.getInstance();
+        decimal.setMaximumFractionDigits(1);
+        decimal.setMinimumFractionDigits(1);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter grades separated by comma: ");
+        String input = sc.nextLine();
+        Scanner token = new Scanner(input).useDelimiter(",");
+        int count = 0;
+        double add = 0;
+        while (token.hasNextDouble()) {
+            add += token.nextDouble();
+            count++;
+        }
+        System.out.println("Avg grade: " + decimal.format(add / count));
+    }
+}
+
+• Divisors of positive integer.
+import java.util.Scanner;
+public class DivisorOfPositiveInteger{
+    public static void main(String[] args) {
+        System.out.println("Enter num: ");
+        Scanner sc = new Scanner(System.in);
+        int n1 = sc.nextInt();
+        for (int i = 1; i <= n1; i++) {
+            if (n1 % i == 0) {
+                System.out.print(i + "\t");
+            }
+        }
+    }
+}
