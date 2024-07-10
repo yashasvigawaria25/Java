@@ -1,6 +1,6 @@
 Notes
-Algorithms==>Set of self-contained sequence of actions to be executed to accomplish a task
-example:Directions,Recipes,Instruction manuals
+Algorithms==>Set of a self-contained sequence of actions to be executed to accomplish a task
+example: Directions, Recipes, Instruction manuals
 
 Program Development
 • Source Code==> program written in a specific programming language (human readable)
@@ -43,3 +43,4 @@ public class DivisorOfPositiveInteger{
             }
         }
     }
+}
