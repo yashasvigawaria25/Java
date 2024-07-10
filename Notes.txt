@@ -29,6 +29,45 @@ public class AverageNumByDelimiter {
         System.out.println("Avg grade: " + decimal.format(add / count));
     }
 }
+X---------X---------X---------X---------X---------X---------X---------
+import java.util.Scanner;
+public class Avggrade {
+    public static void main(String[] args) {
+        System.out.println("Enter grades separated by commas: ");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        Scanner token = new Scanner(input).useDelimiter(",");
+        double sum = 0;
+        int count = 0;
+        while (token.hasNextDouble()) {
+            String word = token.next();
+            double grade = Double.parseDouble(word);
+            sum += grade;
+            count++;
+        }
+        if (count > 0) {
+            double avg = sum / count;
+            System.out.println("Average grade: " + avg);
+        } else {
+            System.out.println("No grades entered.");
+        }
+    }
+}
+X---------X---------X---------X---------X---------X---------X---------
+public class Average {
+	public static int aboveavg(double[] grades) {
+		double sum = 0;
+		for (int i = 0; i < grades.length; i++) {
+			sum += grades[i];
+		}
+		int avg = (int) sum / grades.length;
+		return avg;
+	}
+	public static void main(String[] args) {
+		double[] marks = { 50.5, 60, 70, 80, 99.6 };
+		System.out.println(aboveavg(marks));
+	}
+}
 
 • Divisors of positive integer.
 import java.util.Scanner;
@@ -42,5 +81,282 @@ public class DivisorOfPositiveInteger{
                 System.out.print(i + "\t");
             }
         }
+    }
+}
+X---------X---------X---------X---------X---------X---------X---------
+import java.util.Scanner;
+public class AllDivisors {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the num: ");
+        int num = sc.nextInt();
+        int i = 1;
+        String result = " ";
+        while (num < 0) {
+            System.out.println("Enter the a positive num: ");
+            num = sc.nextInt();
+        }
+        while (i > 0) {
+            if (num % i == 0) {
+                result += i + " ";
+            }
+            i++;
+        }
+        System.out.println(result);
+    }
+}
+
+• Write a method with method signature: public static int sum(int[] numbers)
+import java.util.Scanner;
+public class SumOFArray {
+    public static void main(String[] args) {
+        int[] array = { 65, 98, 45, 25, 98 };
+        System.out.print(sum(array));
+    }
+
+    public static int sum(int[] numbers) {
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        return sum;
+    }
+}
+
+• Number of e’s in the line
+import java.util.Scanner;
+public class Nume_E {
+    public static void main(String[] args) {
+        System.out.print("Enter a sentence: ");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        int e = 0;
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (ch == 'e' || ch == 'E') {
+                e++;
+            }
+        }
+        System.out.println("There are " + e + "'s.");
+    }
+}
+
+• Write a program that accepts the employee’s ID as input and prints out their age.
+import java.util.Scanner;
+public class FindAge {
+    public static void main(String[] args) {
+        System.out.print("Enter your employee ID: ");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        String output = "";
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (ch >= '0' && ch <= '9') {
+                output += ch;
+            }
+        }
+        int urage = 2024 - Integer.parseInt(output);
+        System.out.println("age: " + urage);
+    }
+}
+
+• Write words on line and displays number of words.
+import java.util.Scanner;
+public class WriteAndCount {
+    public static void main(String[] args) {
+        System.out.println("enter sentence: ");
+        Scanner sc = new Scanner(System.in);
+        String line = sc.nextLine();
+        Scanner token = new Scanner(line).useDelimiter(" ");
+        int count = 0;
+        while (token.hasNext()) {
+            String word = token.next();
+            count++;
+            System.out.println(word);
+        }
+        System.out.println("number of words: " + count);
+    }
+}
+
+• Reverse the string.
+import java.util.Scanner;
+public class Reverse {
+    public static void main(String[] args) {
+        System.out.print("Enter string: ");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        String output = "";
+        for (int i = input.length(); i > 0; i--) {
+            char ch = input.charAt(i - 1);
+            output += ch;
+        }
+        System.out.println("reverse: " + output);
+    }
+}
+
+• Number of e in string
+import java.util.Scanner;
+public class TotalNumE {
+    public static void main(String[] args) {
+        System.out.println("Enter a sentence: ");
+        Scanner sc = new Scanner(System.in);
+        String sentence = sc.nextLine();
+        int totalCount = 0;
+        Scanner token = new Scanner(sentence).useDelimiter(" ");
+        while (token.hasNext()) {
+            String word = token.next();
+            int count = 0;
+            for (int i = 0; i < word.length(); i++) {
+                char ch = word.charAt(i);
+                if (ch == 'e') {
+                    count++;
+                    totalCount++;
+                }
+            }
+            System.out.println(count);
+        }
+        System.out.println("Total number of 'e's in the sentence: " + totalCount);
+    }
+}
+
+• Compare 2 arrays
+public class Compare2arrays {
+    public static void main(String[] args) {
+        double[] a = { 78.5, 80.4, 90.7, 60.4 };
+        double[] b = { 80.8, 70.3, 87.6, 67.9 };
+        double[][] grades = { a, b };
+        String msg = "";
+        for (int i = 0; i < grades[0].length; i++) {
+            msg += "Student " + (i + 1);
+            if (grades[0][i] < grades[1][i]) {
+                msg += " did improve!\n";
+            } else if (grades[0][i] == grades[1][i]) {
+                msg += " is steady!";
+            } else {
+                msg += " did not improve!\n";
+            }
+        }
+        System.out.println(msg);
+    }
+}
+
+• Random array row*Column
+import java.util.Random;
+import java.util.Scanner;
+public class Randomarray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter num rows: ");
+        int rows = sc.nextInt();
+        System.out.print("\nEnter num columns: ");
+        int columns = sc.nextInt();
+
+        int[][] randomArray = new int[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            System.out.println("\n");
+            for (int j = 0; j < columns; j++) {
+                Random rand = new Random();
+                int k = rand.nextInt(100) + 1;
+                randomArray[i][j] = k;
+                // System.out.println("\t" + k);
+            }
+        }
+        System.out.println("Random Array:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(randomArray[i][j] + "\t");
+            }
+            System.out.println(); // Move to the next line after printing each row
+        }
+        int rowss = randomArray.length; // Number of rows
+        int colss = randomArray[0].length; // Number of columns (assuming all rows have the same length)
+        // Print the number of rows and columns
+        System.out.println("Number of rows: " + rowss);
+        System.out.println("Number of columns: " + colss);
+    }
+}
+
+• Table 6*6
+public class TableOf6 {
+    public static void main(String[] args) {
+        System.out.println("\t1\t2\t3\t4\t5\t6");
+        for(int i =1;i<7;i++){
+            System.out.print(i+"\t");
+            for(int j =1;j<7;j++){
+                System.out.print(i*j+"\t");
+            }
+            System.out.println("");
+        }
+    }
+}
+
+• MinNumber
+public class MinNumber {
+    public static int minIndex(int[] numbers) {
+        int min = numbers[0];
+        for (int i = 0; i < numbers.length; i++) {
+            if (min > numbers[i]) {
+                min = numbers[i];
+            }
+        }
+        return min;
+    }
+    public static void main(String[] args) {
+        int[] numberss = { 56, 86, 44, 23, 76, 4, 66, 34 };
+        System.out.println(minIndex(numberss));
+    }
+}
+
+• SwapMaxMin
+public class SwapMaxMin {
+    public static void swap(int[] array) {
+        int min = array[0];
+        int max = array[0];
+        int cl = 0;
+        int cm = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (max < array[i]) {
+                max = array[i];
+                cm = i;
+            }
+            if (min > array[i]) {
+                min = array[i];
+                cl = i;
+            }
+        }
+        int k = array[cm];
+        array[cm] = array[cl];
+        array[cl] = k;
+    }
+
+    public static void main(String[] args) {
+        int[] array = { 4, 9, 7, 81, 6, 88 };
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+        swap(array);
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+}
+
+• Palindrome
+public class palindromeExample {
+    public static void main(String[] args) {
+        String palindrome = "racecar";
+        System.out.println(checkIfPalindrome(palindrome));
+    }
+    public static boolean checkIfPalindrome(String toCheck) {
+        boolean isPalindrome = true;
+        int index = 0;
+        while (isPalindrome && index <= toCheck.length() / 2) {
+            if (toCheck.charAt(index) != toCheck.charAt(toCheck.length() - 1 - index)) {
+                isPalindrome = false;
+            }
+            index++;
+        }
+        return isPalindrome;
     }
 }
