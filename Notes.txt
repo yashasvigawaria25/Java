@@ -52,7 +52,7 @@ public class Avggrade {
             System.out.println("No grades entered.");
         }
     }
-}
+} 
 X---------X---------X---------X---------X---------X---------X---------
 public class Average {
 	public static int aboveavg(double[] grades) {
